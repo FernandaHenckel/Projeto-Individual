@@ -10,7 +10,7 @@ body {
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-SobreMim: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
 }
@@ -32,6 +32,7 @@ body {
   text-align: center;
   font-family: Segoe UI;
   justify-content: space-around;
+  height: 150px;
 }
 
 
@@ -88,7 +89,7 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('https://wallpapers.com/images/hd/one-direction-with-fans-7ar9saj1wpv9mkmb.jpg');
   background-size: cover;
 }
 
@@ -96,6 +97,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: 150px;
 }
 
 .banner .container p {
@@ -103,6 +105,9 @@ body {
   margin: 0;
   padding: 0;
   font-size: 36px;
+  color: #FFFFFF;
+  font-weight: bold; 
+  text-shadow: 2px 2px 5px #000000;
 }
 
 .banner .container span {
@@ -145,7 +150,7 @@ body {
 
 .footer {
   background-color: #87CEFA;
-  height: 150px;
+  height: 20vh;
   color: black;
   display: flex;
   font-size: 15px;
@@ -154,9 +159,9 @@ body {
 }
 
 .footer .container {
+  display: flex;
   justify-content: center;
   text-align: center;
-  height: 100px;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -193,9 +198,15 @@ body {
 
 
 /* LOGIN */
+.containerLogin {
+  display: flex;
+  margin-top: 130px;
+  justify-content: center;
+  padding: 110px;
+  padding-top: 200px;
+}
 
-
-.login .container {
+.login .containerLogin {
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -250,6 +261,18 @@ body {
   text-align: center;
   border-radius: 10px;
   margin: 0;
+}
+
+.formulario .album select {
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+  background-color: white;
+}
+
+.album {
+  text-align: center;
 }
 
 .campo {
@@ -311,6 +334,19 @@ body {
   margin-right: 10%;
 }
 
+.containerCadastro {
+  display: flex;
+  margin-top: 130px;
+  justify-content: center;
+  padding: 110px;
+  padding-top: 200px;
+}
+
+.login .containerCadastro {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 .card_erro #mensagem_erro{
   font-weight: 500;
   font-size: 20px;
@@ -359,16 +395,16 @@ input {
   width: 50px;
 }
 
-/* SIMULADOR */
+/* Sobre Mim */
 
-.simulador {
-  color: white;
+.sobremim {
+  color: black;
 }
 
-.simulador .container {
+.sobremim .containerSobreMim {
   flex-direction: column;
   overflow: scroll; 
-  height: var(--tamanho-simulador);
+  height: var(--tamanho-SobreMim);
 }
 
 /* ALERTA */
