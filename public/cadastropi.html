@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg" alt="Logo da one direction">
+</head>
+
+<body>
+    <div class="div_nav">
+        <div class="logo_nav">
+            <a href="home.html"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg" alt="Logo da one direction"></a>
+            <h2>One Direction</h1>
+        </div>
+           <ul class="links">
+              <li>
+                <h2><a href="home.html" class="link_nav">Home</a></h2>
+              </li>
+              <li>
+                <h2><a href="quiz.html" class="link_nav">Quiz</a></h2>
+              </li>
+              <li>
+                <h2><a href="sobremim.html" class="link_nav">Sobre Mim</a></h2>
+              </li>
+              <li>
+                <h2><a href="login.html" class="link_nav">Login</a></h2>
+              </li>
+            </ul>
+    </div>
+    <div class="cadastro">
+        <div class="box">
+            <div>
+                <h1>Cadastro</h1>
+            </div>
+            <div class="fazerCadastro">
+                <p>Nome</p>
+                <input type="text" placeholder="Nome" id="ipt_nome">
+                <p>Email</p>
+                <input type="text" placeholder="nome@email.com" id="ipt_email">
+                <p>Senha</p>
+                <input type="password" placeholder="***********" id="ipt_senha1">
+                <p>Confirmar senha</p>
+                <input type="password" placeholder="***********" id="ipt_senha2">
+                <button onclick="cadastro()">Cadastrar</button>
+                <div id="cadastroResposta"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="redes-sociais">
+            <h4>Redes sociais</h4>
+            <ul>
+                <li><img src="imgs/instagram.png" alt=""></li>
+                <li><img src="imgs/youtube.png" alt=""></li>
+                <li><img src="imgs/linkedin-Photoroom.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    function cadastro() {
+        let nome = ipt_nome.value;
+        let email = ipt_email.value;
+        let cpf = ipt_cpf.value;
+        let senha = ipt_senha1.value;
+        let confirmarSenha = ipt_senha2.value;
+        let emailTemArroba = email.includes('@');
+        let senhaTemEspaco = senha.includes(' ');
+        let confirmarSenhaTemEspaco = confirmarSenha.includes(' ');
+
+        if (nome == '' || email == '' || cpf == '' || senha == '' || confirmarSenha == '') {
+            cadastroResposta.innerHTML = `Por favor, preencha todos os campos.`
+        } else if (emailTemArroba == false) {
+            cadastroResposta.innerHTML = `Insira um email válido.`
+        } else if (senha != confirmarSenha) {
+            cadastroResposta.innerHTML = `Certifique-se de que preencheu os campos 'Senha' e 'Confirmar senha' corretamente.`;
+        } else if (senhaTemEspaco || confirmarSenhaTemEspaco) {
+            cadastroResposta.innerHTML = `A senha não pode conter espaços.`
+        }else if(cpf.length != 14){
+            cadastroResposta.innerHTML = `O CPF deve conter 11 dígitos.`
+        }else {
+            cadastroResposta.innerHTML = `
+            Cadastro realizado com sucesso!<br>
+            Confira o e-mail informado no cadastro para receber o token de acesso.<br> 
+            `;
+        }
+    }
+</script>
+
+</html>
