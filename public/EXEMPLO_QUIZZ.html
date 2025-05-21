@@ -31,38 +31,39 @@
             </ul>  
       </div>
 <div class="quiz">
+    <h1>Quão fã da One Direction você é?</h1>
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+        <div id="pontuacao" class="containerPontuacao">
+            <div id="pontuacaoDuranteJogo" class="certasErradas">
+                <span>Quantidade de acertos: <span id="spanCertas"></span></span><br>
+                <span>Quantidade de erros: <span id="spanErradas"></span></span><br>
             </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+            <div id="pontuacaoFinalJogo" class="pontuacaoFinal">
+                <span id="pontuacaoFinal">Pontuação Final:
                     <span id="spanPontuacaoFinal">***</span>
                 </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
+                <span id="msgFinal">***</span>
             </div>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="jogo" class="">
 
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
-            </div>
+            </div><br><br>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestaoAtual" class="padding-8"><br><br>
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
-            <div id="infoAlternativas" class="padding-8">
+            <div id="infoAlternativas" class="preAlternativas">
                 <span><em>Escolha uma opção dentre as abaixo:</em></span>
             </div>
 
-            <div id="opcoes" class="flex-colunar padding-8">
+            <div id="opcoes" class="alternativas">
                 <span>
                     <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
                     <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>

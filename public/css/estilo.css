@@ -460,4 +460,30 @@ input {
   padding-top: 400px;
   padding-bottom: 400px;
   text-align: center;
+  width: 100%;
 }
+
+.quiz span{
+  padding-top: 400px;
+  padding-bottom: 400px;
+  text-align: center;
+}
+
+.containerPontuacao{
+  display: flex;
+  text-align: center;
+}
+
+.alternativas {
+  display: flex;
+  text-align: center;
+}
+
+.certasErradas{
+  display: flex;
+  text-align: center;
+}
+
+
+
+
