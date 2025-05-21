@@ -30,6 +30,7 @@
             </div>
             </ul>  
       </div>
+<div class="quiz">
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
@@ -93,6 +94,7 @@
 
         </div>
     </div>
+</div>
     <div class="footer">
         <div class="container">
                     <ul>
@@ -146,17 +148,77 @@
             alternativaD: "American Idol",
             alternativaE: "The X Factor",
             alternativaCorreta: "alternativaE"
-        }
+        },
 
         {
-            pergunta: "Complete a música: ",
-            alternativaA: "The Voice",
-            alternativaB: "Britain's Got Talent",
-            alternativaC: "Pop Idol",
-            alternativaD: "American Idol",
-            alternativaE: "The X Factor",
+            pergunta: "Complete a música: I can't be no Superman but for you, I'll be ____________",
+            alternativaA: "superwoman",
+            alternativaB: "superhuman",
+            alternativaC: "incredible",
+            alternativaD: "the one",
+            alternativaE: "superhero",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Complete a música: You're ____________ don't know what for",
+            alternativaA: "insecure",
+            alternativaB: "beautiful",
+            alternativaC: "idiot",
+            alternativaD: "anxious",
+            alternativaE: "introvert",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Complete a música: If you ever feel ____________, don't",
+            alternativaA: "sad",
+            alternativaB: "ugly",
+            alternativaC: "alone",
+            alternativaD: "shy",
+            alternativaE: "selfish",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Complete a música: And I know we'll be alright ____________, just ____________ your eyes and see",
+            alternativaA: "kid, open",
+            alternativaB: "child, open",
+            alternativaC: "babe, close",
+            alternativaD: "love, open",
+            alternativaE: "child, close",
             alternativaCorreta: "alternativaE"
-        }
+        },
+
+        {
+            pergunta: "Qual é a música: When I close my eyes, all the stars align?",
+            alternativaA: "You and I",
+            alternativaB: "Olivia",
+            alternativaC: "Half a Heart",
+            alternativaD: "Once in a Lifetime",
+            alternativaE: "Same Mistakes",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual é a música: I hope I'm not a casualty, hope you won't get up and leave might not mean that much to you but to me it's everything?",
+            alternativaA: "Something Great",
+            alternativaB: "I Should Have Kissed You",
+            alternativaC: "Love you Goodbye",
+            alternativaD: "Little Things",
+            alternativaE: "Truly Madly Deeply",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Complete a música: If you ever feel ____________, don't",
+            alternativaA: "sad",
+            alternativaB: "ugly",
+            alternativaC: "alone",
+            alternativaD: "shy",
+            alternativaE: "selfish",
+            alternativaCorreta: "alternativaC"
+        },
 
     ]
 
@@ -201,6 +263,7 @@
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
         document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
         document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoCinco").innerHTML = questaoAtual.alternativaE;
     }
 
     function submeter() {
@@ -233,6 +296,7 @@
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
         quartaOpcao.disabled = opcaoEscolhida
+        quintaOpcao.disabled = opcaoEscolhida
 
     }
 

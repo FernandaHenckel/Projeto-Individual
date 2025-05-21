@@ -454,3 +454,10 @@ input {
   75%  {transform: rotate(-25deg)}
   100% {transform: rotate(25deg)}
 }
+
+/* QUIZ */
+.quiz {
+  padding-top: 400px;
+  padding-bottom: 400px;
+  text-align: center;
+}
