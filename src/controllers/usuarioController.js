@@ -65,7 +65,7 @@ function cadastrar(req, res) {
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if  (album == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Seu álbum está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (fkEmpresa == undefined) {
