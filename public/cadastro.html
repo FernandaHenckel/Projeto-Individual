@@ -72,7 +72,7 @@
           <div class="campo">
             <div class="album">
             <span>Escolha o seu álbum favorito da One Direction</span><br>
-            <select id="ipt_album">
+            <select id="album_input">
               <option value="upallnight">Up All Night</option>
               <option value="takemehome">Take Me Home</option>
               <option value="midnightmemories">Midnight Memories</option>
@@ -119,6 +119,7 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
+    var albumVar = album_input.value
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
@@ -126,6 +127,7 @@
     if (
       nomeVar == "" ||
       emailVar == "" ||
+      albumVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
       codigoVar == ""
@@ -161,9 +163,11 @@
       },
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+        // Agora vá para o arquivo routes/usuario.js 
+        
         nomeServer: nomeVar,
         emailServer: emailVar,
+        albumServer: albumVar,
         senhaServer: senhaVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
