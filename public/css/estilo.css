@@ -127,6 +127,9 @@ body {
 
 .box img {
   width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .social .container .boxes {
@@ -462,27 +465,31 @@ input {
   text-align: center;
   width: 100%;
 }
+.box1{
+  background-color: black;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  flex: 1 1 400px;
+  max-width: 700px;
+  color: white;
+  margin: 500px;
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+}
 
 .quiz span{
   padding-top: 400px;
   padding-bottom: 400px;
   text-align: center;
 }
-
-.containerPontuacao{
+.alternativas{
   display: flex;
-  text-align: center;
+  flex-direction: column;
+margin: 0;
 }
 
-.alternativas {
-  display: flex;
-  text-align: center;
-}
-
-.certasErradas{
-  display: flex;
-  text-align: center;
-}
 
 
 
