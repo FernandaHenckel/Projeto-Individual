@@ -115,7 +115,7 @@ body {
   font-weight: 800;
 }
 
-/* MISSÃO VISÃO VALORES */
+/* foto dos meninos */
 
 .social {
   background-color: #e5e5e5;
@@ -131,6 +131,11 @@ body {
   height: 170px;
   object-fit: cover;
   border-radius: 50%;
+  justify-content: space-around;
+}
+
+.box p{
+  width: 50%;
 }
 
 .social .container .boxes {
@@ -493,9 +498,9 @@ input {
   height: fit-content;
 }
 
-.containerPontuacao
+/* .containerPontuacao
 
-.pontuacaoFinal
+.pontuacaoFinal */
 
 
 
