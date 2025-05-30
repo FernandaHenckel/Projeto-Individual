@@ -3,21 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Quiz</title>
+
+
     <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg" alt="Logo da one direction">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 
 <body onload="onloadEsconder()">
     <div class="div_nav">
         <div class="logo_nav">
-            <a href="index.html"><img
-                    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg"
-                    alt="Logo da one direction"></a>
-            <h2>One Direction</h2>
+          <a href="index.html"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg" alt="Logo da one direction"></a>
+              <h2>One Direction</h2>
         </div>
-        <ul class="links">
+          <ul class="links">
             <div>
                 <a href="index.html">Home</a>
             </div>
@@ -30,78 +34,74 @@
             <div>
                 <a href="login.html" class="link_nav">Login</a>
             </div>
-        </ul>
-    </div>
+            </ul>  
+      </div>
+  <div class="quiz">
+    <div id="pontuacaoEJogo">
+        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-    <div class="quiz">
-        <h1>Quão fã da One Direction você é?</h1>
-        <div class="box1">
-            <div id="pontuacaoEJogo">
-                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-
-                <div id="pontuacao" class="containerPontuacao">
-                    <div id="pontuacaoDuranteJogo" class="certasErradas">
-                        <span>Quantidade de acertos: <span id="spanCertas"></span></span><br>
-                        <span>Quantidade de erros: <span id="spanErradas"></span></span><br>
-                    </div>
-                    <div id="pontuacaoFinalJogo" class="pontuacaoFinal">
-                        <span id="pontuacaoFinal">Pontuação Final:
-                            <span id="spanPontuacaoFinal">***</span>
-                        </span>
-                        <span id="msgFinal">***</span>
-                    </div>
-                </div>
-
-                <div id="jogo" class="">
-
-                    <div id="infoQuestao" class="padding-8">
-                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
-                                id="qtdQuestoes"></span>
-                            questões.</span>
-                    </div><br><br>
-
-                    <div id="perguntaDaQuestaoAtual" class="padding-8"><br><br>
-                        <span id="spanQuestaoExibida" class="text-bold"></span>
-                    </div>
-
-                    <div id="infoAlternativas" class="preAlternativas">
-                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                    </div>
-
-                    <div id="opcoes" class="alternativas">
-                        <span>
-                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
-                            <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
-                        </span>
-                    </div>
-
-                    <div id="botoes" class="flex-colunar padding-8">
-                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                        <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-                    </div>
-
-                </div>
+        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+            </div>
+            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                    <span id="spanPontuacaoFinal">***</span>
+                </span>
+                <span id="msgFinal" class="width-fit-content">***</span>
             </div>
         </div>
+
+        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+            <div id="infoQuestao" class="padding-8">
+                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                    questões.</span>
+            </div>
+
+            <div id="perguntaDaQuestaoAtual" class="padding-8">
+                <span id="spanQuestaoExibida" class="text-bold"></span>
+            </div>
+
+            <div id="infoAlternativas" class="padding-8">
+                <span><em>Escolha uma opção dentre as abaixo:</em></span>
+            </div>
+
+            <div id="opcoes" class="flex-colunar padding-8">
+                <span>
+                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                </span>
+                <span>
+                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                </span>
+                <span>
+                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                </span>
+                <span>
+                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                </span>
+                <span>
+                    <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
+                    <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
+                </span>
+            </div>
+
+            <div id="botoes" class="flex-colunar padding-8">
+                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+            </div>
+
+        </div>
     </div>
+</div>  
+
     <div class="footer">
         <div class="container">
             <ul>
@@ -114,14 +114,15 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>
+
 </body>
 
 </html>
 <script>
     const listaDeQuestoes = [
 
-        {
+    {
             pergunta: "Quando a One Direction foi fundada",
             alternativaA: "26 de maio de 2009",
             alternativaB: "28 de setembro de 2011",
@@ -278,17 +279,17 @@
             alternativaC: "Liam",
             alternativaD: "Niall",
             alternativaE: "Zayn",
-            alternativaCorreta: "alternativa"
+            alternativaCorreta: "alternativaA"
         },
 
         {
-            pergunta: "Quem falou: It says do not diall 9, so I dialled 9?",
+            pergunta: "Quem falou: 'It says do not diall 9, so I dialled 9'?",
             alternativaA: "Zayn",
             alternativaB: "Niall",
             alternativaC: "Harry",
             alternativaD: "Liam",
             alternativaE: "Louis",
-            alternativaCorreta: "alternativa"
+            alternativaCorreta: "alternativaE"
         },
 
         {
@@ -298,7 +299,7 @@
             alternativaC: "Lilo (Liam e Louis)",
             alternativaD: "Ziam (Zayn e Liam)",
             alternativaE: "Narry (Niall e Harry)",
-            alternativaCorreta: "alternativa"
+            alternativaCorreta: "alternativaC"
         },
 
         {
@@ -308,8 +309,19 @@
             alternativaC: "Louis",
             alternativaD: "Niall",
             alternativaE: "Harry",
-            alternativaCorreta: "alternativa"
+            alternativaCorreta: "alternativaC"
         },
+
+        {
+            pergunta: "Quem disse: 'I live in the valley!'?",
+            alternativaA: "Niall",
+            alternativaB: "Liam",
+            alternativaC: "Zayn",
+            alternativaD: "Harry",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaD"
+        }
+
     ]
 
     // variáveis globais    
@@ -469,26 +481,26 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Acho que você não conhece tanto de One Direction..."
+            textoParaMensagemFinal = "Parece que você não estudou..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Você está no caminho..."
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, você realmente fã de One Direction!"
+            textoParaMensagemFinal = "Uau, parabéns!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray")
+        document.getElementById('jogo').classList.add("text-new-gray") 
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
