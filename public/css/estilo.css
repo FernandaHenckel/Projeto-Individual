@@ -506,21 +506,34 @@ main {
   height: fit-content;
 }  */
 
+.pontuacaoEJogo{
+ align-items: center;
+ 
+}
+
 .flex-colunar {
   display: flex;
   flex-direction: column;
 }
 
 .width-fit-content {
-  width: fit-content;
+  width: 300px;
 }
 
 .border-primary {
+  display: flex;
+  justify-content: center;
   border: 3px solid var(--primary-brand-color);
+  border-radius: 10px;
+  background-color: rgba(186, 85, 211, 0.5);
+  align-items: center;
+  margin-bottom: 10px
 }
 
 .border-secondary {
   border: 3px solid var(--secondary-brand-color);
+  border-radius: 10px;
+  background-color: rgba(186, 85, 211, 0.5);
 }
 
 .padding-8 {
@@ -556,9 +569,24 @@ main {
   justify-content: center;
   padding-top: 350px;
   padding-bottom: 350px;
-  background-color: rgba(186, 85, 211, 0.5);
 }
 
+:root {
+  --primary-brand-color: #000000;
+  --secondary-brand-color: #000000;
+  --success: #198754;
+  --success-dark: #095c36;
+  --success-light: #9dd3ba;
+  --warning: #ffc107;
+  --warning-dark: #705400;
+  --warning-light: #fdebb3;
+  --danger: #dc3545;
+  --danger-dark: #990c19;
+  --danger-light: #f0c1c6;
+  --new-gray: #CCCCCC;
+  --new-black: #212427;
+  --new-white: #E8E8E8;
+}
 
 
 
