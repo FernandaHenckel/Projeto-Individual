@@ -10,7 +10,7 @@ function listar(id) {
 
 function cadastrar(id, pontuacao) {
     var pontuacaoMax = `
-        INSERT INTO quiz (fk_usuario, pontuacao) VALUES ('${id}', ${pontuacao}');
+        INSERT INTO quiz (fk_usuario, pontuacao) VALUES ('${id}', '${pontuacao}');
     `;
     console.log("Executando a instrução SQL: \n" + pontuacaoMax);
     return database.executar(pontuacaoMax);
