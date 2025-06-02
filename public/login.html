@@ -133,10 +133,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.FK_ALBUM = json.fk_album;
+                    sessionStorage.ALBUM = json.album;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "indexLogin.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -145,6 +145,10 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML =
+                    "Email e/ou senha inválido(s)";
+                    
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);

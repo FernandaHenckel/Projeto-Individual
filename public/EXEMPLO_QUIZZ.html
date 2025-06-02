@@ -353,6 +353,42 @@
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
+    function melhorTentativa() {
+        fetch("/quiz/listar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                id: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(resposta);
+                        sessionStorage.PONTUACAO = resposta.pontuacao;
+                    });
+                    // resposta.json().then(json => {
+                    // });
+                }
+                if (sessionStorage.PONTUACAO == undefined || sessionStorage.PONTUACAO == null) {
+                    exibirPontuacao.innerHTML = `0`
+                } else {
+                    exibirPontuacao.innerHTML = `${sessionStorage.PONTUACAO}`
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
+    }
+
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
@@ -501,15 +537,15 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Parece que você não gosta tanto de One Direction..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Você está no caminho, mas pode melhorar!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Uau, você é realmente fã de One Direction!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
