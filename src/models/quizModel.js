@@ -1,8 +1,8 @@
 var database = require("../database/config")
 
-function listar(id) {
+function listar() {
     var pontuacaoMax = `
-        select max(pontuacao) as pontuacao from quiz where fk_usuario = ('${id}');
+        select pontuacao as pontuacao from quiz;
     `;
     console.log("Executando a instrução SQL: \n" + pontuacaoMax);
     return database.executar(pontuacaoMax);

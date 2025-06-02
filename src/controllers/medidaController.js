@@ -1,6 +1,6 @@
-var medidaModel = require("../models/medidaModel");
+var albumModel = require("../models/albumModel");
 
-function buscarUltimasMedidas(req, res) {
+function buscarAlbunsFav(req, res) {
 
     const limite_linhas = 7;
 
@@ -8,7 +8,7 @@ function buscarUltimasMedidas(req, res) {
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    albumModel.buscarAlbunsFav(idAquario, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -28,7 +28,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    albumModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +42,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarUltimasMedidas,
+    buscarAlbunsFav,
     buscarMedidasEmTempoReal
 
 }
