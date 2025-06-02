@@ -112,6 +112,23 @@ fetch(`albuns/buscarAlbuns`)
     });
 }
 
+function pontuacaoUser(){
+fetch(`quiz/pontuacaoUser`)
+    .then(response => {
+      if (response.ok) {
+        response.json().then(resposta => {
+            console.log(resposta)
+
+        });
+      } else {
+        console.error('Nenhum resultado encontrado ou erro na API');
+      }
+    })
+    .catch(error => {
+      console.error(`Erro na obtenção dos resultados para exibir: ${error.message}`);
+    });
+}
+
 function alterarTitulo(idAquario) {
     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;

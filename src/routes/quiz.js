@@ -13,4 +13,9 @@ router.post("/listar", function (req, res) {
     quizController.listar(req, res);
 });
 
+router.get("/pontuacaoUser", function (req, res) {
+    // função que vai ser chamada quando acessar /album/cadastrar
+    quizController.pontuacaoUser(req, res);
+});
+
 module.exports = router;

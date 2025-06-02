@@ -1,9 +1,8 @@
 var quizModel = require("../models/quizModel");
 
-function listar(req, res) {
-    var id = req.body.id;
+function pontuacaoUser(req, res) {
 
-    quizModel.listar(id).then(
+    quizModel.listar().then(
         
         function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -42,6 +41,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    listar,
+    pontuacaoUser,
     cadastrar
 }
