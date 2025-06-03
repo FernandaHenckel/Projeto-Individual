@@ -3,9 +3,13 @@ var router = express.Router();
 
 var albumController = require("../controllers/albumController");
 
-router.get("/buscarAlbuns", function (req, res) {
+router.get("/buscarAlbunsFav/:idGrafico", function (req, res) {
     // função que vai ser chamada quando acessar /album/cadastrar
-    albumController.buscarAlbuns(req, res);
+    albumController.buscarAlbunsFav(req, res);
 });
+
+router.get("/tempo-real/:idResultados", function (req, res) {
+    medidaController.buscarResultados(req, res);
+})
 
 module.exports = router;

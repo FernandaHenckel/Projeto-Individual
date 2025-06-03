@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function listar() {
     var pontuacaoMax = `
-        select pontuacao as pontuacao from quiz;
+        select u.nome as usuario, q.pontuacao as pontuacao from usuario u join quiz q on q.fk_usuario = u.id order by q.pontuacao;
     `;
     console.log("Executando a instrução SQL: \n" + pontuacaoMax);
     return database.executar(pontuacaoMax);

@@ -1,14 +1,14 @@
 var albumModel = require("../models/albumModel");
 
-function buscarAlbunsFav(req, res) {
+function buscarAlbuns(req, res) {
 
     const limite_linhas = 7;
 
-    var idAquario = req.params.idAquario;
+    var idGraficos = req.params.idGraficos;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    albumModel.buscarAlbunsFav(idAquario, limite_linhas).then(function (resultado) {
+    albumModel.buscarAlbuns(idGraficos, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -22,13 +22,13 @@ function buscarAlbunsFav(req, res) {
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+function buscarResultados(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var idResultados = req.params.idResultados;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    albumModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    albumModel.buscarResultados(idResultados).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +42,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarAlbunsFav,
-    buscarMedidasEmTempoReal
+    buscarAlbuns,
+    buscarResultados
 
 }

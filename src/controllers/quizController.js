@@ -2,26 +2,20 @@ var quizModel = require("../models/quizModel");
 
 function pontuacaoUser(req, res) {
 
-    quizModel.listar().then(
-        
-        function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+    var idGrafico = req.params.idGrafico;
 
-                    if (resultado.length == 1) {
-                        console.log(resultado);
-                        res.json({
-                            pontuacao: resultado[0].pontuacao
-                        });
-                    } 
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao consultar a pontuação! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    quizModel.listar(idGrafico).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+
 }
 
 function cadastrar(req, res) {

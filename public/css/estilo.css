@@ -21,6 +21,9 @@ body {
   margin: auto;
 }
 
+a{
+  color:#000000;
+}
 .div_nav {
   background-color: #87CEFA;
   display: flex;
@@ -412,7 +415,6 @@ input {
 
 .sobremim .containerSobreMim {
   flex-direction: column;
-  overflow: scroll; 
   height: var(--tamanho-SobreMim);
 }
 
@@ -626,5 +628,22 @@ main {
   margin-bottom: 5px;
 }
 
+.DASHBOARDS{
+  display: flex;
+  flex-direction: row;
+}
 
+.dash{
+  height: 250px;
+  width: 500px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-left: 100px;
+}
 
+.dash2{
+  height: 250px;
+  width: 500px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
