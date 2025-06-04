@@ -8,8 +8,8 @@ router.get("/buscarAlbunsFav/:idGrafico", function (req, res) {
     albumController.buscarAlbunsFav(req, res);
 });
 
-router.get("/tempo-real/:idResultados", function (req, res) {
-    medidaController.buscarResultados(req, res);
+router.get("/tempo-real/:idIndicador", function (req, res) {
+    albumController.buscarMedidasEmTempoReal(req, res);
 })
 
 module.exports = router;

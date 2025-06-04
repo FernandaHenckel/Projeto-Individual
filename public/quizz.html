@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz</title>
+
+    <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon"
+        href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg"
+        alt="Logo da one direction">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+
+<body onload="validarSessao(),onloadEsconder() ">
+    <div class="div_nav">
+        <div class="logo_nav">
+            <a href="indexLogin.html"><img
+                    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4537867-5b66-4f8f-bbf8-e2d2ad1a3242/d62qy6n-5f495c5d-707b-4ce0-b680-9e82565bbc95.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NTM3ODY3LTViNjYtNGY4Zi1iYmY4LWUyZDJhZDFhMzI0MlwvZDYycXk2bi01ZjQ5NWM1ZC03MDdiLTRjZTAtYjY4MC05ZTgyNTY1YmJjOTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s04D-EfLn_qoay_oBI9K7wJct8KJtKdlklS6VRR-ysg"
+                    alt="Logo da one direction"></a>
+            <h2>One Direction</h2>
+        </div>
+        <ul class="links">
+            <div>
+                <a href="indexLogin.html">Home</a>
+            </div>
+            <div>
+                <a href="historiaLogin.html">História</a>
+            </div>
+            <div>
+                <a href="quizz.html" class="link_nav">Quiz</a>
+            </div>
+            <div>
+                <a href="sobremimLogin.html" class="link_nav">Sobre Mim</a>
+            </div>
+            <div>
+                <a href="dashboard.html" class="link_nav">Dashboard</a>
+            </div>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <button onclick="limparSessao()">Sair</button>
+            </div>
+        </ul>
+    </div>
+    <div class="quiz">
+        <h2>Você é realmente fã de One Direction?</h2>
+        <div id="pontuacaoEJogo" class="pontuacaoEJogo">
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <span id="spanPontuacaoFinal">***</span>
+                    </span>
+                    <span id="msgFinal" class="width-fit-content">***</span>
+                </div>
+            </div>
+
+            <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                <div id="infoQuestao" class="padding-8">
+                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                        questões.</span>
+                </div>
+
+                <div id="perguntaDaQuestaoAtual" class="padding-8">
+                    <span id="spanQuestaoExibida" class="text-bold"></span>
+                </div>
+
+                <div id="infoAlternativas" class="padding-8">
+                    <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                </div>
+
+                <div id="opcoes" class="flex-colunar padding-8">
+                    <span>
+                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
+                        <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
+                    </span>
+                </div>
+
+                <div id="botoes" class="flex-colunar padding-8">
+                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <ul>
+                <li><a href="https://www.instagram.com/onedirection/"><img
+                            src="https://icones.pro/wp-content/uploads/2021/02/instagram-icone-noir.png"></a></li>
+                <li><a href="https://twitter.com/onedirection"><img
+                            src="https://img.icons8.com/m_rounded/512/twitterx.png"></a></li>
+                <li><a href="https://www.facebook.com/onedirection"><img
+                            src="https://www.gov.br/cdtn/pt-br/canais_atendimento/simbolo-f-facebook-1024x1024.png/@@images/image.png"></a>
+                </li>
+            </ul>
+        </div>
+            
+    </div>
+
+</body>
+
+</html>
+<script>
+    const listaDeQuestoes = [
+
+        {
+            pergunta: "Quando a One Direction foi fundada",
+            alternativaA: "26 de maio de 2009",
+            alternativaB: "28 de setembro de 2011",
+            alternativaC: "23 de julho de 2010",
+            alternativaD: "1 de abril de 2010",
+            alternativaE: "13 de novembro de 2011",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quem deu a ideia do nome One Direction?",
+            alternativaA: "Louis Tomlinson",
+            alternativaB: "Liam Payne",
+            alternativaC: "Niall Horan",
+            alternativaD: "Harry Styles",
+            alternativaE: "Zayn Malik",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quem saiu da banda em 2015?",
+            alternativaA: "Harry Styles",
+            alternativaB: "Louis Tomlinson",
+            alternativaC: "Zayn Malik",
+            alternativaD: "Liam Payne",
+            alternativaE: "Niall Horan",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual é o nome do reality show em que a One Direction foi formada?",
+            alternativaA: "The Voice",
+            alternativaB: "Britain's Got Talent",
+            alternativaC: "Pop Idol",
+            alternativaD: "American Idol",
+            alternativaE: "The X Factor",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Complete a música: I can't be no Superman but for you, I'll be ____________",
+            alternativaA: "superwoman",
+            alternativaB: "superhuman",
+            alternativaC: "incredible",
+            alternativaD: "the one",
+            alternativaE: "superhero",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Complete a música: You're ____________ don't know what for",
+            alternativaA: "insecure",
+            alternativaB: "beautiful",
+            alternativaC: "idiot",
+            alternativaD: "anxious",
+            alternativaE: "introvert",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Complete a música: If you ever feel ____________, don't",
+            alternativaA: "sad",
+            alternativaB: "ugly",
+            alternativaC: "alone",
+            alternativaD: "shy",
+            alternativaE: "selfish",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Complete a música: And I know we'll be alright ____________, just ____________ your eyes and see",
+            alternativaA: "kid, open",
+            alternativaB: "child, open",
+            alternativaC: "babe, close",
+            alternativaD: "love, open",
+            alternativaE: "child, close",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Qual é a música: When I close my eyes, all the stars align?",
+            alternativaA: "You and I",
+            alternativaB: "Olivia",
+            alternativaC: "Half a Heart",
+            alternativaD: "Once in a Lifetime",
+            alternativaE: "Same Mistakes",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual é a música: I hope I'm not a casualty, hope you won't get up and leave might not mean that much to you but to me it's everything?",
+            alternativaA: "Something Great",
+            alternativaB: "I Should Have Kissed You",
+            alternativaC: "Love you Goodbye",
+            alternativaD: "Little Things",
+            alternativaE: "Truly Madly Deeply",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Louis disse uma vez: I like girls who ____________",
+            alternativaA: "are pretty",
+            alternativaB: "eat carrots",
+            alternativaC: "are funny",
+            alternativaD: "eat fruits",
+            alternativaE: "are kind",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Liam disse uma vez: I have a strange fear of ____________",
+            alternativaA: "closets",
+            alternativaB: "water",
+            alternativaC: "cats",
+            alternativaD: "spoons",
+            alternativaE: "zebras",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Harry disse uma vez: Get out of my  ____________",
+            alternativaA: "head",
+            alternativaB: "mind",
+            alternativaC: "chair",
+            alternativaD: "house",
+            alternativaE: "kitchen",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Qual bebida a One Direction bebeu que deixaram eles 'malucos'",
+            alternativaA: "alcohol",
+            alternativaB: "juice",
+            alternativaC: "water",
+            alternativaD: "energy juice",
+            alternativaE: "soda",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual que é o nome do pombo do Louis",
+            alternativaA: "William",
+            alternativaB: "Kevin",
+            alternativaC: "James",
+            alternativaD: "Philip",
+            alternativaE: "Larry",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quem queria ser um criminoso quando crescesse?",
+            alternativaA: "Louis",
+            alternativaB: "Harry",
+            alternativaC: "Liam",
+            alternativaD: "Niall",
+            alternativaE: "Zayn",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Quem falou: 'It says do not diall 9, so I dialled 9'?",
+            alternativaA: "Zayn",
+            alternativaB: "Niall",
+            alternativaC: "Harry",
+            alternativaD: "Liam",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Entre quem ocorria as guerras de água?",
+            alternativaA: "Larry (Louis e Harry)",
+            alternativaB: "Zouis (Zayn e Louis)",
+            alternativaC: "Lilo (Liam e Louis)",
+            alternativaD: "Ziam (Zayn e Liam)",
+            alternativaE: "Narry (Niall e Harry)",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quem disse: 'Niall the bad boy? Give it a rest, Niall the church boy more like'?",
+            alternativaA: "Liam",
+            alternativaB: "Zayn",
+            alternativaC: "Louis",
+            alternativaD: "Niall",
+            alternativaE: "Harry",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quem disse: 'I live in the valley!'?",
+            alternativaA: "Niall",
+            alternativaB: "Liam",
+            alternativaC: "Zayn",
+            alternativaD: "Harry",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quem disse: 'Just chillin' on my box'?",
+            alternativaA: "Zayn",
+            alternativaB: "Niall",
+            alternativaC: "Harry",
+            alternativaD: "Louis",
+            alternativaE: "Liam",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quem disse: 'It is three in the morning...'?",
+            alternativaA: "Liam",
+            alternativaB: "Zayn",
+            alternativaC: "Louis",
+            alternativaD: "Niall",
+            alternativaE: "Harry",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Que música eles não cantaram durante as audições do X-Factor?",
+            alternativaA: "Torn",
+            alternativaB: "Viva la Vida",
+            alternativaC: "Only Girl (In the World)",
+            alternativaD: "Isn't She Lovely",
+            alternativaE: "Total Eclipse of a Heart",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quem era conhecido por falar Vas Happenin'?",
+            alternativaA: "Zayn",
+            alternativaB: "Louis",
+            alternativaC: "Harry",
+            alternativaD: "Liam",
+            alternativaE: "Niall",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Quem grita POTATO durante um encontro com fãs'?",
+            alternativaA: "Liam",
+            alternativaB: "Niall",
+            alternativaC: "Zayn",
+            alternativaD: "Harry",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quem fala: 'Simple but effective'?",
+            alternativaA: "Liam",
+            alternativaB: "Niall",
+            alternativaC: "Zayn",
+            alternativaD: "Harry",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quem sabe fazer malabarismo?",
+            alternativaA: "Liam",
+            alternativaB: "Zayn",
+            alternativaC: "Louis",
+            alternativaD: "Niall",
+            alternativaE: "Harry",
+            alternativaCorreta: "alternativaE"
+        },
+
+        {
+            pergunta: "Quem falou Vas Happenin' Celine?",
+            alternativaA: "Liam",
+            alternativaB: "Zayn",
+            alternativaC: "Louis",
+            alternativaD: "Niall",
+            alternativaE: "Harry",
+            alternativaCorreta: "alternativaA"
+        },
+        
+        {
+            pergunta: "Quem morava junto no início da banda",
+            alternativaA: "Todos eles",
+            alternativaB: "Zayn e Liam",
+            alternativaC: "Louis e Harry",
+            alternativaD: "Niall e Liam",
+            alternativaE: "Zayn e Louis",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quem tinha uma banda chamada White Eskimo?",
+            alternativaA: "Zayn",
+            alternativaB: "Liam",
+            alternativaC: "Harry",
+            alternativaD: "Niall",
+            alternativaE: "Louis",
+            alternativaCorreta: "alternativaC"
+        },
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function melhorTentativa() {
+        fetch("/quiz/listar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                id: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(resposta);
+                        sessionStorage.PONTUACAO = resposta.pontuacao;
+                    });
+                    // resposta.json().then(json => {
+                    // });
+                }
+                if (sessionStorage.PONTUACAO == undefined || sessionStorage.PONTUACAO == null) {
+                    exibirPontuacao.innerHTML = `0`
+                } else {
+                    exibirPontuacao.innerHTML = `${sessionStorage.PONTUACAO}`
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoCinco").innerHTML = questaoAtual.alternativaE;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+        quintaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não gosta tanto de One Direction..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Você está no caminho, mas pode melhorar!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, você é realmente fã de One Direction!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+        fetch("/quiz/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuario,
+                pontuacaoFinalServer: pontuacaoFinal
+            }),
+        }).then(
+            function(resposta){
+                if(resposta.ok){
+                    console.log("Resultado salvo no banco com sucesso")
+                }
+            }
+        )
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
+</script>

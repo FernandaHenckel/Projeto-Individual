@@ -22,13 +22,13 @@ function buscarAlbunsFav(req, res) {
 }
 
 
-function buscarResultados(req, res) {
+function buscarMedidasEmTempoReal(req, res) {
 
-    var idResultados = req.params.idResultados;
+    var idIndicador = req.params.idIndicador;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    albumModel.buscarResultados(idResultados).then(function (resultado) {
+    albumModel.buscarMedidasEmTempoReal(idIndicador).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +42,6 @@ function buscarResultados(req, res) {
 }
 
 module.exports = {
-    buscarAlbunsFav,
-    buscarResultados
+    buscarAlbunsFav
 
 }

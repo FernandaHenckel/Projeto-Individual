@@ -33,7 +33,10 @@
                 <a href="index.html">Home</a>
             </div>
             <div>
-                <a href="EXEMPLO_QUIZZ.html" class="link_nav">Quiz</a>
+                <a href="historiaLogin.html">História</a>
+            </div>
+            <div>
+                <a href="quizz.html" class="link_nav">Quiz</a>
             </div>
             <div>
                 <a href="sobremimLogin.html" class="link_nav">Sobre Mim</a>
@@ -48,22 +51,24 @@
         </ul>
     </div>
 
-    <div class="INDICADORES">
+    <!-- <div class="INDICADORES">
         <div class="indicadores" id="indicador1">
             <h4>Álbum favorito dos usuários deste site:</h4>
+            <h1 id="indicador1"></h1>
         </div>
         <div class="indicadores" id="indicador2">
             <h4>Usuários que acertou mais perguntas do quiz: </h4>
+            <h1 id="indicador2"></h1>
         </div>
-    </div>
+    </div> -->
 
     <div class="DASHBOARDS">
         <div class="dash">
-            <h4>Álbum favorito dos usuários deste site:</h4>
+            <h2>Álbum favorito dos usuários deste site:</h2>
             <canvas id="idGrafico1"></canvas>
         </div>
         <div class="dash2">
-            <h4>Usuário que acertou mais perguntas do quiz: </h4>
+            <h2>Usuário que acertou mais perguntas do quiz: </h2>
             <canvas id="idGrafico2"></canvas>
         </div>
     </div>
@@ -154,12 +159,11 @@
 
         // Criando estrutura para plotar gráfico - dados
         let legenda = 'Quantidade';
-        let coresGraficoDiffBarra = ['rgb(255, 255, 255)',
-            'rgb(112, 216, 219)',
-            'rgb(23, 111, 179)',
-            'rgb(46, 199, 168)',
-            'rgb(160, 160, 160)',
-            'rgb(240, 240, 240)'];
+        let coresGraficoDiffBarra = ['rgb(233, 245, 7)',
+            'rgb(235, 21, 199)',
+            'rgb(45, 237, 112)',
+            'rgb(33, 200, 237   )',
+            'rgb(171, 66, 194)'];
         let coresGraficoBarra = ['rgb(204, 0, 0)'];
         let coresGrafico = [];
         if (idGrafico == 1) {
@@ -229,15 +233,14 @@
     }
 
     function obterDadosIndicador() {
-        for (let idIndicador = 1; idIndicador <= 6; idIndicador++) {
             console.log(idIndicador);
-            fetch(`/medidas/tempo-real/${idIndicador}`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/albuns/buscarMedidasEmTempoReal${idIndicador}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         resposta.reverse();
 
-                        plotarIndicador(resposta, idIndicador);
+                        plotarResultados(resposta, idIndicador);
 
                     });
                 } else {
@@ -248,9 +251,9 @@
                     console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 });
         }
-    }
+    
 
-    function plotarIndicador(resposta, idIndicador) {
+    function plotarResultados(resposta, idIndicador) {
 
         console.log('iniciando plotagem do indicador...');
 
@@ -262,12 +265,12 @@
         if (idIndicador == 1) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.plano);
+                mensagem.push(registro.quantidadeAlbum);
             }
         } else if (idIndicador == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.estado);
+                mensagem.push(registro.nome);
             }
         }
 
@@ -277,7 +280,7 @@
         console.log(mensagem)
         console.log('----------------------------------------------')
 
-        let div = document.getElementById(`resultadoQuery${idIndicador}`);
+        let div = document.getElementById(`indicador${idIndicador}`);
         div.innerHTML = mensagem;
     }
 
